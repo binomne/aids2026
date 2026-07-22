@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIVnext Global — Digitalise Your HIV Response | AIDS2026</title>
+<meta name="description" content="HIVnext is a community-built health information platform for HIV programs. Tailored to your country's program, modular and expandable, with real-time dashboards. Proven across 21 NGOs and 50+ sites in Malaysia.">
+<meta name="keywords" content="HIV program digitalisation, NGO health information system, HIV data platform, community health data, differentiated HIV services software, AIDS2026">
+<meta property="og:title" content="HIVnext Global — Digitalise Your HIV Response">
+<meta property="og:description" content="A community-built health information platform, proven across 21 NGOs in Malaysia. See it at AIDS2026 — scan the QR code on our poster.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/poster/poster-thumb.jpg">
+<meta property="og:url" content="https://aids2026.hivnext.org/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://aids2026.hivnext.org/">
+
+<!-- Favicon (Emblem mark) -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+
+<!-- Theme init — inline & blocking, runs before first paint to avoid a flash of the wrong theme -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('hivnext-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        /* These read from the CSS variables in site.css, so every one of
+           these Tailwind classes (bg-space, text-paper/70, text-mint, etc.)
+           automatically reacts to the light/dark theme toggle. */
+        space:  'rgb(var(--bg-rgb) / <alpha-value>)',
+        navy:   'rgb(var(--bg-alt-rgb) / <alpha-value>)',
+        paper:  'rgb(var(--text-rgb) / <alpha-value>)',
+        mint:   'rgb(var(--mint-rgb) / <alpha-value>)',
+        green:  'rgb(var(--green-rgb) / <alpha-value>)',
+        sky:    'rgb(var(--sky-rgb) / <alpha-value>)',
+        bright: 'rgb(var(--bright-rgb) / <alpha-value>)',
+        brand:  'rgb(var(--brand-rgb) / <alpha-value>)',
+        royal:  'rgb(var(--royal-rgb) / <alpha-value>)',
+      },
+      fontFamily: {
+        display: ['Space Grotesk', 'sans-serif'],
+        body:    ['Manrope', 'sans-serif'],
+        mono:    ['JetBrains Mono', 'monospace'],
+      },
+    }
+  }
+}
+</script>
+</head>
+<body data-page="home" class="font-body text-paper antialiased overflow-x-hidden">
+
+<div id="page-transition"></div>
+<div id="site-header"></div>
+
+<!-- ══════════ HERO ══════════ -->
+<header id="top" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+  <div class="absolute inset-0 mesh" aria-hidden="true"></div>
+  <div class="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-brand/20 blur-[140px]" aria-hidden="true"></div>
+  <div class="absolute -bottom-56 -left-32 w-[480px] h-[480px] rounded-full bg-green/10 blur-[120px]" aria-hidden="true"></div>
+
+  <div class="relative max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-14 items-center w-full">
+    <div>
+      <p class="eyebrow mb-5 gs-reveal" id="hero-eyebrow">AIDS2026 · RIO DE JANEIRO</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.06] tracking-tight gs-reveal" id="hero-h1">
+        Your HIV program,<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-mint via-sky to-bright">running on data</span><br>
+        — not spreadsheets.
+      </h1>
+      <p class="mt-6 text-lg text-paper/70 max-w-xl leading-relaxed gs-reveal" id="hero-sub">
+        HIVnext is a community-built health information platform for differentiated HIV services. Tailored to your country's program. Modular where you need it. Live dashboards where it counts.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-4 gs-reveal" id="hero-ctas">
+        <a href="#contact" class="cta-glow btn-primary px-8 py-4 rounded-full text-base">
+          Book a demo at AIDS2026 →
+        </a>
+        <a href="#features" class="btn-secondary px-7 py-4 rounded-full text-base font-semibold">
+          See the platform
+        </a>
+      </div>
+      <p class="mt-6 text-sm text-paper/40 gs-reveal font-mono" id="hero-note">Built by community, for community · Proven in Malaysia since 2024</p>
+    </div>
+
+    <!-- Signature: live ascending bars -->
+    <div class="flex justify-center lg:justify-end" aria-hidden="true">
+      <div class="relative">
+        <div class="hero-bars" id="hero-bars">
+          <div class="hb bg-gradient-to-t from-mint/70 to-mint"     style="height:100%"></div>
+          <div class="hb bg-gradient-to-t from-green/70 to-green"   style="height:82%"></div>
+          <div class="hb bg-gradient-to-t from-sky/70 to-sky"       style="height:64%"></div>
+          <div class="hb bg-gradient-to-t from-bright/70 to-bright" style="height:46%"></div>
+          <div class="hb bg-gradient-to-t from-brand/70 to-brand"   style="height:30%"></div>
+        </div>
+        <div class="absolute -bottom-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky/40 to-transparent"></div>
+        <p class="absolute -bottom-16 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[.2em] text-paper/30 whitespace-nowrap">LIVE PROGRAM DATA</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ POSTER SPOTLIGHT (new) ══════════ -->
+<section id="poster-spotlight" class="relative py-20 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="gs-reveal order-2 lg:order-1">
+      <p class="eyebrow mb-4">SCANNED OUR POSTER?</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4">Everything behind the poster, <span class="text-green">in one place.</span></h2>
+      <p class="text-paper/60 max-w-xl leading-relaxed mb-8">Explore the full-size AIDS2026 poster on any screen, read the accepted abstract, or go straight to booking time with the team behind it.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="poster.html" class="btn-primary px-7 py-3.5 rounded-full text-sm inline-flex items-center gap-2">
+          View the poster <span aria-hidden="true">↗</span>
+        </a>
+        <a href="abstract.html" class="btn-secondary px-7 py-3.5 rounded-full text-sm font-semibold">Read the abstract</a>
+      </div>
+    </div>
+    <a href="poster.html" class="tilt-card order-1 lg:order-2 relative rounded-2xl overflow-hidden block gs-reveal">
+      <div class="tilt-glare"></div>
+      <img src="assets/poster/poster-thumb.jpg" alt="AIDS2026 poster preview — Leveraging Integrated Digital Health Systems to Reduce Community Health Worker Reporting Burden" class="w-full h-auto tilt-inner" loading="lazy">
+      <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-space/95 to-transparent">
+        <p class="text-xs font-mono text-paper/60">ABSTRACT THPEE537</p>
+        <p class="text-sm font-semibold mt-1">Tap to view full size →</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ PROOF BAR ══════════ -->
+<section id="proof" class="relative border-y border-white/5 bg-navy/60">
+  <div class="max-w-6xl mx-auto px-5 py-14">
+    <p class="eyebrow text-center mb-10 gs-reveal">DEPLOYED NATIONALLY · MALAYSIA</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="gs-reveal">
+        <p class="font-display font-bold text-4xl md:text-5xl text-mint stat-num" data-target="21">0</p>
+        <p class="mt-2 text-sm text-paper/60">Implementing NGOs</p>
+      </div>
+      <div class="gs-reveal">
+        <p class="font-display font-bold text-4xl md:text-5xl text-sky stat-num" data-target="50" data-suffix="+">0</p>
+        <p class="mt-2 text-sm text-paper/60">Service sites</p>
+      </div>
+      <div class="gs-reveal">
+        <p class="font-display font-bold text-4xl md:text-5xl text-bright stat-num" data-target="178">0</p>
+        <p class="mt-2 text-sm text-paper/60">Community health workers</p>
+      </div>
+      <div class="gs-reveal">
+        <p class="font-display font-bold text-4xl md:text-5xl text-green stat-num" data-target="80" data-suffix="%">0</p>
+        <p class="mt-2 text-sm text-paper/60">Faster dashboard loads vs legacy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FEATURES ══════════ -->
+<section id="features" class="relative py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow mb-4 gs-reveal">THE PLATFORM</p>
+    <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight max-w-2xl gs-reveal">One system. Shaped around <span class="text-sky">your</span> program.</h2>
+    <p class="mt-4 text-paper/60 max-w-2xl gs-reveal">Every country's HIV response is different. HIVnext doesn't force your program into someone else's workflow — it's configured around your indicators, your cascade, your reporting lines.</p>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+
+      <div class="tilt-card relative rounded-2xl p-8 gs-reveal">
+        <div class="tilt-glare"></div>
+        <div class="tilt-inner">
+          <div class="bars-motif mb-6" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <h3 class="font-display font-bold text-xl mb-3">Tailored to your country's program</h3>
+          <p class="text-paper/60 text-[15px] leading-relaxed">Key populations, testing cascades, national indicators, language — configured to match your ministry's framework and your funders' reporting requirements from day one. No workarounds.</p>
+          <ul class="mt-5 space-y-2 text-sm text-paper/50 font-mono">
+            <li class="flex gap-2"><span class="text-green">▸</span> National indicator alignment</li>
+            <li class="flex gap-2"><span class="text-green">▸</span> Multi-language interface</li>
+            <li class="flex gap-2"><span class="text-green">▸</span> Role-based access (RBAC + ABAC)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tilt-card relative rounded-2xl p-8 gs-reveal">
+        <div class="tilt-glare"></div>
+        <div class="tilt-inner">
+          <div class="bars-motif mb-6" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <h3 class="font-display font-bold text-xl mb-3">Modular. Sustainable. Expandable.</h3>
+          <p class="text-paper/60 text-[15px] leading-relaxed">Start with outreach and testing. Add prevention, case management, self-test distribution, or community-based care when your program grows — without migrating or rebuilding.</p>
+          <ul class="mt-5 space-y-2 text-sm text-paper/50 font-mono">
+            <li class="flex gap-2"><span class="text-sky">▸</span> Outreach &amp; screening module</li>
+            <li class="flex gap-2"><span class="text-sky">▸</span> Linkage-to-care tracking</li>
+            <li class="flex gap-2"><span class="text-sky">▸</span> Self-test &amp; PrEP modules</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tilt-card relative rounded-2xl p-8 gs-reveal">
+        <div class="tilt-glare"></div>
+        <div class="tilt-inner">
+          <div class="bars-motif mb-6" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <h3 class="font-display font-bold text-xl mb-3">Real-time program dashboards</h3>
+          <p class="text-paper/60 text-[15px] leading-relaxed">Program managers see performance against targets the moment data lands — cascade by site, by worker, by population. Decisions on today's numbers, not last quarter's.</p>
+          <ul class="mt-5 space-y-2 text-sm text-paper/50 font-mono">
+            <li class="flex gap-2"><span class="text-bright">▸</span> Target-vs-actual, live</li>
+            <li class="flex gap-2"><span class="text-bright">▸</span> Site &amp; worker-level views</li>
+            <li class="flex gap-2"><span class="text-bright">▸</span> Donor-ready exports</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section class="relative py-24 bg-navy/40 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow mb-4 gs-reveal">FROM THE FIELD</p>
+    <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight gs-reveal">Built with the people who use it.</h2>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <!-- ⚠️ PLACEHOLDER QUOTES — replace with real, approved quotes before AIDS2026 -->
+      <figure class="tilt-card relative rounded-2xl p-7 gs-reveal">
+        <div class="tilt-glare"></div>
+        <blockquote class="text-paper/75 text-[15px] leading-relaxed">"Dashboard loads went from fifteen seconds to under three. Our managers actually open it every morning now."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-sky to-brand" aria-hidden="true"></div>
+          <div>
+            <p class="text-sm font-semibold">Program Manager</p>
+            <p class="text-xs text-paper/40 font-mono">Implementing partner NGO · Malaysia</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="tilt-card relative rounded-2xl p-7 gs-reveal">
+        <div class="tilt-glare"></div>
+        <blockquote class="text-paper/75 text-[15px] leading-relaxed">"Twenty-one NGOs, one consolidated database. We stopped chasing spreadsheets and started chasing outcomes."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-mint to-green" aria-hidden="true"></div>
+          <div>
+            <p class="text-sm font-semibold">M&amp;E Specialist</p>
+            <p class="text-xs text-paper/40 font-mono">National program team · Malaysia</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="tilt-card relative rounded-2xl p-7 gs-reveal">
+        <div class="tilt-glare"></div>
+        <blockquote class="text-paper/75 text-[15px] leading-relaxed">"Data entry that used to take my evening now takes minutes after each outreach. The system speaks our language."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-bright to-royal" aria-hidden="true"></div>
+          <div>
+            <p class="text-sm font-semibold">Community Health Worker</p>
+            <p class="text-xs text-paper/40 font-mono">Field team · Northern region</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ONBOARDING PATH ══════════ -->
+<section id="onboarding" class="relative py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="eyebrow mb-4 gs-reveal">GETTING STARTED</p>
+    <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight max-w-2xl gs-reveal">From first call to first dashboard in four steps.</h2>
+
+    <div class="mt-14 grid md:grid-cols-4 gap-6">
+      <div class="relative gs-reveal">
+        <p class="font-mono text-sky text-sm mb-3">STEP 01</p>
+        <div class="h-1 rounded-full bg-gradient-to-r from-mint to-mint/0 mb-5"></div>
+        <h3 class="font-display font-bold text-lg mb-2">Program mapping</h3>
+        <p class="text-paper/55 text-sm leading-relaxed">We sit with your M&amp;E team and map your cascade, indicators, populations, and reporting lines. Roughly two weeks, mostly conversations.</p>
+      </div>
+      <div class="relative gs-reveal">
+        <p class="font-mono text-sky text-sm mb-3">STEP 02</p>
+        <div class="h-1 rounded-full bg-gradient-to-r from-green to-green/0 mb-5"></div>
+        <h3 class="font-display font-bold text-lg mb-2">Configure &amp; migrate</h3>
+        <p class="text-paper/55 text-sm leading-relaxed">Your modules are configured and historical data is migrated from spreadsheets — cleaned, validated, and preserved. Nothing is lost.</p>
+      </div>
+      <div class="relative gs-reveal">
+        <p class="font-mono text-sky text-sm mb-3">STEP 03</p>
+        <div class="h-1 rounded-full bg-gradient-to-r from-sky to-sky/0 mb-5"></div>
+        <h3 class="font-display font-bold text-lg mb-2">Train the field</h3>
+        <p class="text-paper/55 text-sm leading-relaxed">Hands-on training for managers and health workers — in-app guides, video tutorials, and a real human on the other end of the chat.</p>
+      </div>
+      <div class="relative gs-reveal">
+        <p class="font-mono text-sky text-sm mb-3">STEP 04</p>
+        <div class="h-1 rounded-full bg-gradient-to-r from-bright to-bright/0 mb-5"></div>
+        <h3 class="font-display font-bold text-lg mb-2">Go live &amp; grow</h3>
+        <p class="text-paper/55 text-sm leading-relaxed">Launch site by site with live dashboards from day one. Add modules as your program expands — the platform grows with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ (SEO) ══════════ -->
+<section id="faq" class="relative py-24 bg-navy/40 border-y border-white/5">
+  <div class="max-w-3xl mx-auto px-5">
+    <p class="eyebrow mb-4 gs-reveal">QUESTIONS</p>
+    <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight gs-reveal">Frequently asked questions</h2>
+
+    <div class="mt-10 space-y-3">
+      <details class="group rounded-xl border border-white/10 bg-space/50 gs-reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-[15px]">
+          What is HIVnext and who is it for?
+          <span class="faq-chev text-sky text-xl leading-none">+</span>
+        </summary>
+        <p class="px-6 pb-5 text-paper/60 text-[15px] leading-relaxed">HIVnext is a health information platform for HIV programs run by NGOs, community organisations, and national program teams. It replaces fragile spreadsheet workflows with a structured, cloud-based system covering outreach, testing, linkage to care, prevention, and program monitoring — designed for differentiated HIV services delivered by community health workers.</p>
+      </details>
+
+      <details class="group rounded-xl border border-white/10 bg-space/50 gs-reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-[15px]">
+          Is HIVnext proven in a real national program?
+          <span class="faq-chev text-sky text-xl leading-none">+</span>
+        </summary>
+        <p class="px-6 pb-5 text-paper/60 text-[15px] leading-relaxed">Yes. HIVnext runs Malaysia's differentiated HIV services data ecosystem across 21 implementing NGOs, more than 50 service sites, and 178 community health workers — in partnership with the Malaysian AIDS Foundation and the Ministry of Health. Its bridge architecture cut dashboard load times by 80% versus the legacy spreadsheet system.</p>
+      </details>
+
+      <details class="group rounded-xl border border-white/10 bg-space/50 gs-reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-[15px]">
+          Can it match our country's national indicators and reporting?
+          <span class="faq-chev text-sky text-xl leading-none">+</span>
+        </summary>
+        <p class="px-6 pb-5 text-paper/60 text-[15px] leading-relaxed">That's the core design principle. During program mapping we configure your cascade, key population definitions, national indicators, and funder reporting formats (Global Fund, PEPFAR, national health ministry templates). The platform adapts to your framework — not the other way around.</p>
+      </details>
+
+      <details class="group rounded-xl border border-white/10 bg-space/50 gs-reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-[15px]">
+          What about client confidentiality and data security?
+          <span class="faq-chev text-sky text-xl leading-none">+</span>
+        </summary>
+        <p class="px-6 pb-5 text-paper/60 text-[15px] leading-relaxed">HIVnext uses role-based and attribute-based access control (RBAC + ABAC), so every user sees only the data their role and site permit. Client data is held in structured cloud infrastructure with audit trails — built around the confidentiality standards HIV services demand for key populations.</p>
+      </details>
+
+      <details class="group rounded-xl border border-white/10 bg-space/50 gs-reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-[15px]">
+          We're a small NGO with limited budget. Is this for us?
+          <span class="faq-chev text-sky text-xl leading-none">+</span>
+        </summary>
+        <p class="px-6 pb-5 text-paper/60 text-[15px] leading-relaxed">Yes — HIVnext was built by community for community, starting from exactly that reality. The modular design means you start with what you need now and expand later. Talk to us about your program size and funding context; the onboarding path is shaped around NGO and donor procurement realities, not enterprise sales cycles.</p>
+      </details>
+
+      <details class="group rounded-xl border border-white/10 bg-space/50 gs-reveal">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-[15px]">
+          How long does implementation take?
+          <span class="faq-chev text-sky text-xl leading-none">+</span>
+        </summary>
+        <p class="px-6 pb-5 text-paper/60 text-[15px] leading-relaxed">A typical deployment runs eight to twelve weeks from program mapping to first sites live: two weeks of mapping, four to six weeks of configuration and data migration, then training and phased go-live. Timelines flex with program complexity and the state of your existing data.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FINAL CTA ══════════ -->
+<section id="contact" class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0 mesh" aria-hidden="true"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full bg-brand/15 blur-[160px]" aria-hidden="true"></div>
+  <div class="relative max-w-3xl mx-auto px-5 text-center">
+    <div class="bars-motif mx-auto mb-8 gs-reveal" style="height:40px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <h2 class="font-display font-bold text-3xl md:text-5xl tracking-tight gs-reveal">Meet us at AIDS2026.</h2>
+    <p class="mt-5 text-lg text-paper/60 gs-reveal">See a live demo of the Malaysia deployment and talk through what HIVnext would look like configured for your program.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4 gs-reveal">
+      <a href="mailto:hivnext@myaids.org.my?subject=HIVnext%20Demo%20Request%20—%20AIDS2026" class="cta-glow btn-primary px-9 py-4 rounded-full text-base" data-cta="demo">Book a demo →</a>
+      <a href="https://hivnext.org" target="_blank" rel="noopener" class="btn-secondary px-8 py-4 rounded-full text-base font-semibold">Visit hivnext.org</a>
+    </div>
+    <p class="mt-8 text-sm text-paper/35 font-mono gs-reveal">hivnext@myaids.org.my · Malaysian AIDS Foundation / Malaysian AIDS Council</p>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+
+<script>
+(function() {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── GSAP scroll reveals ──
+  if (!reduced && window.gsap) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero entrance timeline
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .to('#hero-eyebrow', { opacity: 1, y: 0, duration: .6, delay: .1 })
+      .to('#hero-h1',      { opacity: 1, y: 0, duration: .8 }, '-=.35')
+      .to('#hero-sub',     { opacity: 1, y: 0, duration: .7 }, '-=.5')
+      .to('#hero-ctas',    { opacity: 1, y: 0, duration: .7 }, '-=.5')
+      .to('#hero-note',    { opacity: 1, y: 0, duration: .6 }, '-=.45');
+
+    // Hero bars build up
+    gsap.from('#hero-bars .hb', {
+      scaleY: 0, duration: 1.1, stagger: .12, ease: 'power4.out', delay: .5
+    });
+
+    // Generic scroll reveals
+    gsap.utils.toArray('.gs-reveal').forEach((el) => {
+      if (el.closest('header')) return; // hero handled above
+      gsap.to(el, {
+        opacity: 1, y: 0, duration: .7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+  } else {
+    document.querySelectorAll('.gs-reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  }
+
+  // ── Count-up stats ──
+  const statObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      statObs.unobserve(e.target);
+      const el = e.target;
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      if (reduced) { el.textContent = target.toLocaleString() + suffix; return; }
+      const start = performance.now(), dur = 1400;
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(performance.now());
+    });
+  }, { threshold: .5 });
+  document.querySelectorAll('.stat-num').forEach(el => statObs.observe(el));
+
+  // ── 3D tilt cards ──
+  if (!reduced && matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        const rx = (py - .5) * -10;  // tilt X
+        const ry = (px - .5) * 12;   // tilt Y
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        card.style.setProperty('--gx', (px * 100) + '%');
+        card.style.setProperty('--gy', (py * 100) + '%');
+      }, { passive: true });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
+      });
+    });
+  }
+})();
+</script>
+
+<!-- SEO: FAQ structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is HIVnext and who is it for?","acceptedAnswer":{"@type":"Answer","text":"HIVnext is a health information platform for HIV programs run by NGOs, community organisations, and national program teams. It replaces spreadsheet workflows with a structured cloud-based system covering outreach, testing, linkage to care, prevention, and program monitoring."}},
+    {"@type":"Question","name":"Is HIVnext proven in a real national program?","acceptedAnswer":{"@type":"Answer","text":"Yes. HIVnext runs Malaysia's differentiated HIV services data ecosystem across 21 implementing NGOs, 50+ service sites, and 178 community health workers, in partnership with the Malaysian AIDS Foundation and the Ministry of Health."}},
+    {"@type":"Question","name":"Can HIVnext match our country's national indicators and reporting?","acceptedAnswer":{"@type":"Answer","text":"Yes. During program mapping, your cascade, key population definitions, national indicators, and funder reporting formats are configured so the platform adapts to your framework."}},
+    {"@type":"Question","name":"How long does HIVnext implementation take?","acceptedAnswer":{"@type":"Answer","text":"A typical deployment runs eight to twelve weeks from program mapping to first sites live, depending on program complexity and existing data."}}
+  ]
+}
+</script>
+
+</body>
+</html>
