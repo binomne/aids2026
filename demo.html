@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a HIVnext Demo | AIDS2026</title>
-<meta name="description" content="Request a tailored, hands-on HIVnext demonstration for your organisation, program, and current digital health workflow.">
-<meta property="og:title" content="Book a HIVnext Demo | AIDS2026">
-<meta property="og:description" content="Tell the HIVnext team about your organisation and the workflows you want to explore in a hands-on demonstration.">
+<title>Request an HIVnext System Walkthrough | AIDS2026</title>
+<meta name="description" content="Request a guided HIVnext system walkthrough and share the organisational context, current data workflow, and topics you would like to explore.">
+<meta property="og:title" content="Request an HIVnext System Walkthrough | AIDS2026">
+<meta property="og:description" content="Share the context and questions you would like covered in a guided walkthrough of the HIVnext implementation.">
 <meta property="og:image" content="assets/poster/poster-thumb.jpg?v=ias-aids-2026-ttt-andrew-20260723">
 <meta property="og:url" content="https://aids2026.hivnext.org/demo.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -30,7 +30,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=demo-request-form-20260723">
+<link rel="stylesheet" href="assets/css/site.css?v=neutral-copy-form-alignment-20260723">
 
 <script>
 tailwind.config = {
@@ -66,12 +66,12 @@ tailwind.config = {
 
   <div class="relative max-w-6xl mx-auto px-5">
     <div class="max-w-4xl reveal">
-      <p class="eyebrow mb-4">HIVNEXT &middot; HANDS-ON DEMO</p>
+      <p class="eyebrow mb-4">HIVNEXT &middot; SYSTEM WALKTHROUGH</p>
       <h1 class="font-display font-bold text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
-        Tell us what your organisation needs from a digital health system.
+        Share the context you would like the walkthrough to cover.
       </h1>
       <p class="mt-6 max-w-3xl text-base md:text-lg text-paper/65 leading-relaxed">
-        A short, context-first request helps us shape a practical HIVnext demonstration around your field workflow, reporting obligations, and operating environment.
+        This short form helps the HIVnext team understand your organisation, current data workflow, and the questions that may be most relevant during a guided system walkthrough.
       </p>
     </div>
 
@@ -83,8 +83,8 @@ tailwind.config = {
             <li>
               <span>01</span>
               <div>
-                <strong>We review your context</strong>
-                <p>Your organisation, current tools, and the problem you want the demo to address.</p>
+                <strong>We review the submitted context</strong>
+                <p>The information is used to understand the current tools, workflow, and topics you would like clarified.</p>
               </div>
             </li>
             <li>
@@ -97,8 +97,8 @@ tailwind.config = {
             <li>
               <span>03</span>
               <div>
-                <strong>You get a tailored walkthrough</strong>
-                <p>The session focuses on the modules and workflows most relevant to your program.</p>
+                <strong>The walkthrough covers relevant workflows</strong>
+                <p>The session can focus on the parts of the Malaysia implementation that relate to the questions submitted.</p>
               </div>
             </li>
           </ol>
@@ -121,7 +121,7 @@ tailwind.config = {
         <div class="demo-form-head">
           <div>
             <p class="eyebrow mb-2">REQUEST FORM</p>
-            <h2 id="demo-form-title" class="font-display font-bold text-2xl md:text-3xl">Book a tailored HIVnext demo</h2>
+            <h2 id="demo-form-title" class="font-display font-bold text-2xl md:text-3xl">Request an HIVnext system walkthrough</h2>
           </div>
           <span class="demo-time-badge">About 4 minutes</span>
         </div>
@@ -132,22 +132,22 @@ tailwind.config = {
               method="POST"
               accept-charset="UTF-8">
 
-          <input type="hidden" name="_subject" id="demo-subject" value="New HIVnext demo request - AIDS2026 website">
+          <input type="hidden" name="_subject" id="demo-subject" value="New HIVnext walkthrough request - AIDS2026 website">
           <input type="hidden" name="_cc" value="hivnext@mac.org.my">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" id="demo-next" value="https://aids2026.hivnext.org/demo-thank-you.html">
-          <input type="hidden" name="_autoresponse" value="Thank you for requesting a hands-on HIVnext demo. A copy of your submitted request is included below. The HIVnext team will contact you by email to arrange the next step.">
+          <input type="hidden" name="_autoresponse" value="Thank you for requesting an HIVnext system walkthrough. A copy of your submitted request is included below. The HIVnext team will contact you by email regarding the next step.">
           <input type="hidden" name="Submission source" id="demo-source" value="https://aids2026.hivnext.org/demo.html">
           <input type="hidden" name="Submitted at (UTC)" id="demo-time" value="">
 
-          <fieldset class="form-section">
-            <legend>
+          <fieldset class="form-section" aria-labelledby="form-section-about">
+            <div class="form-section-heading">
               <span class="form-section-number">01</span>
               <span>
-                <strong>About you</strong>
-                <small>Who should we contact to arrange the demonstration?</small>
+                <strong id="form-section-about">About you</strong>
+                <small>Who should we contact about the requested walkthrough?</small>
               </span>
-            </legend>
+            </div>
 
             <div class="field-grid field-grid-two">
               <div class="field">
@@ -166,14 +166,14 @@ tailwind.config = {
             </div>
           </fieldset>
 
-          <fieldset class="form-section">
-            <legend>
+          <fieldset class="form-section" aria-labelledby="form-section-organisation">
+            <div class="form-section-heading">
               <span class="form-section-number">02</span>
               <span>
-                <strong>Organisation and location</strong>
-                <small>Help us understand where and with whom the system may be used.</small>
+                <strong id="form-section-organisation">Organisation and location</strong>
+                <small>Basic context about the organisation and its operating location.</small>
               </span>
-            </legend>
+            </div>
 
             <div class="field-grid field-grid-two">
               <div class="field">
@@ -392,14 +392,14 @@ tailwind.config = {
             </div>
           </fieldset>
 
-          <fieldset class="form-section">
-            <legend>
+          <fieldset class="form-section" aria-labelledby="form-section-context">
+            <div class="form-section-heading">
               <span class="form-section-number">03</span>
               <span>
-                <strong>Your current context</strong>
+                <strong id="form-section-context">Your current context</strong>
                 <small>A high-level description is enough. Please do not include client-level data.</small>
               </span>
-            </legend>
+            </div>
 
             <div class="field">
               <div class="field-label-row">
@@ -418,17 +418,17 @@ tailwind.config = {
             </div>
           </fieldset>
 
-          <fieldset class="form-section">
-            <legend>
+          <fieldset class="form-section" aria-labelledby="form-section-topics">
+            <div class="form-section-heading">
               <span class="form-section-number">04</span>
               <span>
-                <strong>Why HIVnext?</strong>
-                <small>Tell us what caught your attention and what the demo should help you evaluate.</small>
+                <strong id="form-section-topics">What you want to explore</strong>
+                <small>Tell us what caught your attention and what you would like the walkthrough to clarify.</small>
               </span>
-            </legend>
+            </div>
 
             <div class="field">
-              <label for="primary-interest">What first sparked your interest in HIVnext? <span aria-hidden="true">*</span></label>
+              <label for="primary-interest">What first drew your attention to HIVnext? <span aria-hidden="true">*</span></label>
               <select id="primary-interest" name="Primary HIVnext interest" required>
                 <option value="" selected disabled>Select the closest match</option>
                 <option value="Reducing reporting burden and duplicate data entry">Reducing reporting burden and duplicate data entry</option>
@@ -449,17 +449,17 @@ tailwind.config = {
 
             <div class="field">
               <div class="field-label-row">
-                <label for="demo-goal">Why would a hands-on demo be useful for your organisation now? <span aria-hidden="true">*</span></label>
+                <label for="demo-goal">What would you like to understand or evaluate during the walkthrough? <span aria-hidden="true">*</span></label>
                 <span class="field-counter" data-counter-for="demo-goal">0 / 1000</span>
               </div>
-              <textarea id="demo-goal" name="Hands-on demo goals" rows="6" maxlength="1000" required placeholder="Describe the workflow, decision, challenge, or planned digitalisation effort you want the session to address. You can also mention the modules or user groups you want to see."></textarea>
+              <textarea id="demo-goal" name="Walkthrough topics and questions" rows="6" maxlength="1000" required placeholder="Describe the workflow, question, challenge, or planned digitalisation activity you would like the session to cover. You can also mention any modules or user groups you want to understand better."></textarea>
             </div>
           </fieldset>
 
           <div class="consent-box">
             <input id="consent" name="Consent to information use" type="checkbox" value="Yes - consent given" required>
             <label for="consent">
-              I consent to the information in this form being processed through the form-delivery service and shared with the HIVnext team at Malaysian AIDS Foundation / Malaysian AIDS Council to assess, arrange, and follow up on this demo request. I understand that a copy will be sent to my email address, and I confirm that I have not included client-identifiable or patient-level health information. <span aria-hidden="true">*</span>
+              I consent to the information in this form being processed through the form-delivery service and shared with the HIVnext team at Malaysian AIDS Foundation / Malaysian AIDS Council to assess, arrange, and follow up on this walkthrough request. I understand that a copy will be sent to my email address, and I confirm that I have not included client-identifiable or patient-level health information. <span aria-hidden="true">*</span>
             </label>
           </div>
 
@@ -469,7 +469,7 @@ tailwind.config = {
               <p>Required fields are marked with an asterisk.</p>
             </div>
             <button id="demo-submit" class="btn-primary demo-submit" type="submit">
-              <span class="demo-submit-label">Send demo request</span>
+              <span class="demo-submit-label">Send walkthrough request</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
             </button>
           </div>
@@ -484,8 +484,8 @@ tailwind.config = {
 
 <div id="site-footer"></div>
 
-<script src="assets/js/config.js?v=demo-request-form-20260723"></script>
-<script src="assets/js/site.js?v=demo-request-form-20260723"></script>
-<script src="assets/js/demo-form.js?v=demo-request-form-20260723"></script>
+<script src="assets/js/config.js?v=neutral-copy-form-alignment-20260723"></script>
+<script src="assets/js/site.js?v=neutral-copy-form-alignment-20260723"></script>
+<script src="assets/js/demo-form.js?v=neutral-copy-form-alignment-20260723"></script>
 </body>
 </html>

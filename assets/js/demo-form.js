@@ -1,5 +1,5 @@
 /* ============================================================================
-   HIVnext demo request form
+   HIVnext walkthrough request form
    Uses a standard HTML POST so FormSubmit can deliver the request, CC the
    second team inbox, and send an automatic copy to the submitter.
    ============================================================================ */
@@ -66,7 +66,7 @@
         var organisation = organisationInput ? organisationInput.value.trim() : "";
         var country = countryInput ? countryInput.value.trim() : "";
         var context = [organisation, country].filter(Boolean).join(" - ");
-        subjectInput.value = "New HIVnext demo request" + (context ? " - " + context : "") + " - AIDS2026 website";
+        subjectInput.value = "New HIVnext walkthrough request" + (context ? " - " + context : "") + " - AIDS2026 website";
       }
 
       if (submitButton) {
@@ -83,7 +83,7 @@
         submitButton.disabled = false;
         submitButton.removeAttribute("aria-busy");
       }
-      if (submitLabel) submitLabel.textContent = "Send demo request";
+      if (submitLabel) submitLabel.textContent = "Send walkthrough request";
       if (status) status.textContent = "";
     });
   });

@@ -78,7 +78,7 @@
             '<button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle light and dark theme">' +
               '<span class="knob">' + moonIcon() + '</span>' +
             '</button>' +
-            '<a href="' + (CFG.demoBookingUrl || '#') + '" class="hidden sm:inline-flex btn-primary text-sm px-5 py-2.5 rounded-full" data-cta="demo">' + (CFG.demoButtonLabel || 'Book a demo') + '</a>' +
+            '<a href="' + (CFG.demoBookingUrl || '#') + '" class="hidden sm:inline-flex btn-primary text-sm px-5 py-2.5 rounded-full" data-cta="demo">' + (CFG.demoButtonLabel || 'Request a walkthrough') + '</a>' +
             '<button type="button" id="mobile-menu-btn" class="md:hidden hamburger" aria-label="Open menu" aria-expanded="false">' +
               '<span></span><span></span><span></span>' +
             '</button>' +
@@ -91,7 +91,7 @@
             var current = p.id === activePage ? ' aria-current="page"' : '';
             return '<a href="' + p.href + '" class="nav-link"' + current + '>' + p.label + '</a>';
           }).join('') +
-          '<a href="' + (CFG.demoBookingUrl || '#') + '" class="btn-primary text-lg px-8 py-3.5 rounded-full mt-2" data-cta="demo">' + (CFG.demoButtonLabel || 'Book a demo') + '</a>' +
+          '<a href="' + (CFG.demoBookingUrl || '#') + '" class="btn-primary text-lg px-8 py-3.5 rounded-full mt-2" data-cta="demo">' + (CFG.demoButtonLabel || 'Request a walkthrough') + '</a>' +
         '</div>' +
       '</div>';
 

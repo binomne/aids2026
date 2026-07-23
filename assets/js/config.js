@@ -34,7 +34,7 @@ window.SITE_CONFIG = {
 
   // Main call to action.
   demoBookingUrl: "demo.html",
-  demoButtonLabel: "Book a demo →",
+  demoButtonLabel: "Request a walkthrough →",
 
   // Approved IAS-AIDS 2026 poster assets. The version query forces browsers
   // and CDNs to replace any cached older poster and author render.

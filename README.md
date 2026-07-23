@@ -1,7 +1,7 @@
 # HIVnext - AIDS2026 site
 
 A static conference microsite for HIVnext, including the homepage, interactive
-virtual poster, official AIDS2026 abstract 9598, and a tailored demo-request
+virtual poster, official AIDS2026 abstract 9598, and a guided system-walkthrough request
 form. It uses plain HTML, Tailwind via CDN, GSAP on the homepage, and vanilla
 JavaScript. There is no build step.
 
@@ -9,8 +9,8 @@ JavaScript. There is no build step.
 index.html                    Homepage
 poster.html                   Zoomable virtual-poster viewer
 abstract.html                 Official two-page abstract viewer
-demo.html                     Hands-on demo request form
-demo-thank-you.html           Confirmation page after a successful request
+demo.html                     Guided system-walkthrough request form
+demo-thank-you.html           Confirmation page after a successful walkthrough request
 assets/
   abstract/                   Official PDF plus page-render images
   css/site.css                Shared styles and light/dark theme system
@@ -38,10 +38,10 @@ assets/
 - The poster and abstract bylines read **B.A.H. Ibnu Najah, T.T.T. Andrew**.
   The revised two-page abstract PDF and its page renders were updated together.
   No abstract download or print control is exposed in the public interface.
-- Every "Book a demo" call to action now opens `demo.html` instead of launching
+- Every system-walkthrough call to action opens `demo.html` instead of launching
   the visitor's local email application.
 
-## Demo-request form delivery
+## Walkthrough-request form delivery
 
 The form is designed for a static host and posts to FormSubmit using a standard
 HTML form submission. It deliberately does not use AJAX because FormSubmit's
@@ -86,7 +86,7 @@ Most global edits are made in `assets/js/config.js`:
 - `headerLogo`: theme-aware header logo.
 - `footerInitiative`: MAF/MAC logo and initiative wording.
 - `footerWordmark`: theme-aware HIVnext footer wordmark.
-- `demoBookingUrl`: destination used by all demo calls to action. It currently
+- `demoBookingUrl`: destination used by all walkthrough calls to action. It currently
   points to `demo.html`.
 - `poster`: approved poster title, metadata, PDF, web image, thumbnail, and
   placeholder paths.

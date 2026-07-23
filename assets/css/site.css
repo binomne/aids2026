@@ -767,18 +767,26 @@ details[open] .faq-chev { transform: rotate(45deg); }
   padding: 0 clamp(1.25rem, 4vw, 2.25rem) clamp(1.5rem, 4vw, 2.25rem);
 }
 .form-section {
+  --form-section-indent: 2.85rem;
   min-inline-size: 0;
   margin: 0;
   border: 0;
-  border-bottom: 1px solid var(--border);
-  padding: clamp(1.6rem, 4vw, 2.2rem) 0;
+  padding: clamp(1.9rem, 4vw, 2.35rem) 0 clamp(1.9rem, 4vw, 2.35rem) var(--form-section-indent);
 }
-.form-section legend {
-  display: flex;
-  align-items: flex-start;
+.form-section + .form-section {
+  border-top: 1px solid var(--border);
+  padding-top: clamp(2.15rem, 4.5vw, 2.7rem);
+}
+.form-section:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+.form-section-heading {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: start;
   gap: .85rem;
-  width: 100%;
-  margin-bottom: 1.35rem;
+  width: auto;
+  margin: 0 0 1.5rem calc(-1 * var(--form-section-indent));
   padding: 0;
 }
 .form-section-number {
@@ -795,14 +803,14 @@ details[open] .faq-chev { transform: rotate(45deg); }
   font-size: .68rem;
   font-weight: 700;
 }
-.form-section legend strong {
+.form-section-heading strong {
   display: block;
   color: var(--text);
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
 }
-.form-section legend small {
+.form-section-heading small {
   display: block;
   margin-top: .2rem;
   color: var(--text-faint);
@@ -823,6 +831,9 @@ details[open] .faq-chev { transform: rotate(45deg); }
 .field-grid + .field,
 .field + .field-grid {
   margin-top: 1rem;
+}
+.field-grid > .field + .field {
+  margin-top: 0;
 }
 .field[hidden] {
   display: none;
@@ -1033,6 +1044,8 @@ details[open] .faq-chev { transform: rotate(45deg); }
   .demo-routing { margin-top: .2rem; }
   .demo-safe-note { margin-top: 1rem; }
   .demo-form-head { flex-direction: column; }
+  .form-section { --form-section-indent: 0rem; }
+  .form-section-heading { margin-left: 0; }
   .field-grid-two { grid-template-columns: 1fr; }
   .field-grid-two .field + .field { margin-top: 0; }
   .field-label-row { align-items: flex-start; }
