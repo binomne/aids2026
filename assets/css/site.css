@@ -526,10 +526,10 @@ details[open] .faq-chev { transform: rotate(45deg); }
   display: block;
   width: auto;
   height: 54px;
-  padding: .35rem .55rem;
-  border-radius: .8rem;
-  background: #173052;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .footer-initiative-copy {
   color: var(--text-dim);

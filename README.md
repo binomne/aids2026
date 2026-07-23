@@ -21,19 +21,20 @@ assets/
 
 ## Content included in this revision
 
-- The approved IAS-AIDS 2026 poster assets are used by the homepage preview and
-  the Virtual Poster page. A version query is applied to the poster paths to
-  invalidate older browser or CDN caches.
+- The latest QR-enabled IAS-AIDS 2026 poster is used by the homepage preview
+  and the Virtual Poster page. Its PDF, web image, thumbnail, and placeholder
+  were regenerated together, with versioned paths to invalidate older caches.
 - HIVnext is expanded on the homepage as **Health Information Vault**, with an
   animated acronym treatment and explanatory copy for the NGO-focused cloud
   database and program-management system.
 - National deployment figures and all three “From the Field” testimonials have
   been updated.
 - The AIDS2026 callout uses `assets/logos/emblem.svg`.
-- The footer uses the MAF/MAC initiative lock-up on the left and the new
-  theme-aware HIVnext wordmark on the right.
-- `abstract.html` shows faithful renders of both pages of the attached official
-  abstract. No download or print control is exposed in the public interface.
+- The footer uses the MAF/MAC initiative lock-up on the left, without a
+  background card, and the new theme-aware HIVnext wordmark on the right.
+- The poster and abstract bylines now read **B.A.H. Ibnu Najah, T.T.T. Andrew**.
+  The revised two-page abstract PDF and its page renders were updated together.
+  No abstract download or print control is exposed in the public interface.
 
 ## Shared settings
 
@@ -72,8 +73,8 @@ security policy and production network must allow those origins.
 
 ## Abstract-viewer note
 
-The official source file remains at
-`assets/abstract/official-abstract-9598.pdf` for archival fidelity. The public
-abstract page intentionally renders the PDF as page images and does not provide
+The revised source file remains at
+`assets/abstract/official-abstract-9598.pdf`. The public abstract page
+intentionally renders the PDF as page images and does not provide
 a download or print button. As with any content delivered to a browser, this is
 interface-level deterrence rather than absolute file-access prevention.

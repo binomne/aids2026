@@ -37,24 +37,24 @@ window.SITE_CONFIG = {
   demoButtonLabel: "Book a demo →",
 
   // Approved IAS-AIDS 2026 poster assets. The version query forces browsers
-  // and CDNs to replace any cached pre-QR poster render.
+  // and CDNs to replace any cached older poster and author render.
   poster: {
     title: "Leveraging Integrated Digital Health Systems to Reduce Community Health Worker Reporting Burden and Strengthen Differentiated HIV Service Delivery in Malaysia",
-    authors: "B.A.H. Ibnu Najah, B.Y. Md Yusralhakim",
+    authors: "B.A.H. Ibnu Najah, T.T.T. Andrew",
     session: "AIDS2026 · Abstract 9598 · Presented at the 26th International AIDS Conference",
-    pdf: "assets/poster/poster-original.pdf?v=ias-aids-2026-qr",
-    image: "assets/poster/poster-web.jpg?v=ias-aids-2026-qr",
-    thumbnail: "assets/poster/poster-thumb.jpg?v=ias-aids-2026-qr",
-    placeholder: "assets/poster/poster-placeholder.jpg?v=ias-aids-2026-qr"
+    pdf: "assets/poster/poster-original.pdf?v=ias-aids-2026-ttt-andrew-20260723",
+    image: "assets/poster/poster-web.jpg?v=ias-aids-2026-ttt-andrew-20260723",
+    thumbnail: "assets/poster/poster-thumb.jpg?v=ias-aids-2026-ttt-andrew-20260723",
+    placeholder: "assets/poster/poster-placeholder.jpg?v=ias-aids-2026-ttt-andrew-20260723"
   },
 
   // Official two-page IAS abstract. The public page shows faithful page
   // renders and intentionally exposes no download or print control.
   abstract: {
     id: "9598",
-    source: "assets/abstract/official-abstract-9598.pdf",
-    pageOne: "assets/abstract/abstract-page-1.webp",
-    pageTwo: "assets/abstract/abstract-page-2.webp"
+    source: "assets/abstract/official-abstract-9598.pdf?v=abstract-authors-ttt-andrew-20260723",
+    pageOne: "assets/abstract/abstract-page-1.webp?v=abstract-authors-ttt-andrew-20260723",
+    pageTwo: "assets/abstract/abstract-page-2.webp?v=abstract-authors-ttt-andrew-20260723"
   },
 
   contactEmail: "hivnext@myaids.org.my",
