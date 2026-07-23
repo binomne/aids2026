@@ -33,7 +33,7 @@ window.SITE_CONFIG = {
   },
 
   // Main call to action.
-  demoBookingUrl: "mailto:hivnext@myaids.org.my?subject=HIVnext%20Demo%20Request%20—%20AIDS2026",
+  demoBookingUrl: "demo.html",
   demoButtonLabel: "Book a demo →",
 
   // Approved IAS-AIDS 2026 poster assets. The version query forces browsers

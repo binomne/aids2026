@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Request Received | HIVnext</title>
+<meta name="description" content="Your HIVnext hands-on demo request has been sent to the team.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://aids2026.hivnext.org/demo-thank-you.html">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('hivnext-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=demo-request-form-20260723">
+
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      space:  'rgb(var(--bg-rgb) / <alpha-value>)',
+      navy:   'rgb(var(--bg-alt-rgb) / <alpha-value>)',
+      paper:  'rgb(var(--text-rgb) / <alpha-value>)',
+      mint:   'rgb(var(--mint-rgb) / <alpha-value>)',
+      green:  'rgb(var(--green-rgb) / <alpha-value>)',
+      sky:    'rgb(var(--sky-rgb) / <alpha-value>)',
+      bright: 'rgb(var(--bright-rgb) / <alpha-value>)',
+      brand:  'rgb(var(--brand-rgb) / <alpha-value>)',
+      royal:  'rgb(var(--royal-rgb) / <alpha-value>)',
+    },
+    fontFamily: {
+      display: ['Space Grotesk', 'sans-serif'],
+      body:    ['Manrope', 'sans-serif'],
+      mono:    ['JetBrains Mono', 'monospace'],
+    },
+  }}
+}
+</script>
+</head>
+<body data-page="demo" class="font-body text-paper antialiased overflow-x-hidden">
+
+<div id="page-transition"></div>
+<div id="site-header"></div>
+
+<main class="thanks-page min-h-[78vh] pt-28 pb-24 page-enter flex items-center">
+  <div class="max-w-3xl mx-auto px-5 w-full">
+    <section class="thanks-card reveal" aria-labelledby="thanks-title">
+      <div class="thanks-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <p class="eyebrow mt-7 mb-3">REQUEST SENT</p>
+      <h1 id="thanks-title" class="font-display font-bold text-3xl md:text-5xl tracking-tight">Your demo request has been received.</h1>
+      <p class="mt-5 text-paper/65 text-base md:text-lg leading-relaxed">
+        The request has been routed to the HIVnext team at <strong>hivnext@myaids.org.my</strong> and <strong>hivnext@mac.org.my</strong>. A copy will also be sent to the email address you entered.
+      </p>
+      <p class="mt-4 text-paper/50 leading-relaxed">
+        The team will review your organisation's context and contact you by email to arrange the next step. Please check your spam or junk folder if the submission copy does not appear in your inbox.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="index.html" class="btn-primary px-7 py-3.5 rounded-full text-sm">Return to the homepage</a>
+        <a href="poster.html" class="btn-secondary px-7 py-3.5 rounded-full text-sm font-semibold">View the virtual poster</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js?v=demo-request-form-20260723"></script>
+<script src="assets/js/site.js?v=demo-request-form-20260723"></script>
+</body>
+</html>
