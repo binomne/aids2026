@@ -1,0 +1,356 @@
+/* ==========================================================================
+   HIVnext Global — shared site styles
+   Theme system: every colour used across the site is a CSS variable defined
+   once here, per theme. Toggling [data-theme] on <html> re-points all of
+   them at once — no colours are hard-coded in the page markup.
+   ========================================================================== */
+
+/* ---------- Fonts ---------- */
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ---------- DARK THEME (default) ---------- */
+:root,
+:root[data-theme="dark"] {
+  --bg: #020B1C;
+  --bg-alt: #03122E;
+  --bg-elevated: #061735;
+  --surface: rgba(255,255,255,.04);
+  --surface-strong: rgba(255,255,255,.07);
+  --border: rgba(255,255,255,.10);
+  --border-strong: rgba(255,255,255,.22);
+
+  --text: #F7FFFE;
+  --text-dim: rgba(247,255,254,.72);
+  --text-faint: rgba(247,255,254,.45);
+  --text-faintest: rgba(247,255,254,.25);
+
+  /* brand accents — vivid, true-hex. Safe as fills/badges/gradients in dark mode */
+  --mint: #A7E8A7;
+  --green: #76D166;
+  --sky: #63C9E3;
+  --bright: #2D89E5;
+  --brand: #0059B3;
+  --royal: #003366;
+
+  /* accents used as *text* directly on the page background need contrast-safe picks */
+  --ink-1: #63C9E3;   /* eyebrows, links */
+  --ink-2: #76D166;   /* secondary accents, bullets */
+
+  --mesh-line: rgba(99,201,227,.05);
+  --glow-brand: rgba(0,89,179,.20);
+  --glow-green: rgba(118,209,102,.12);
+  --ring-cta: rgba(118,209,102,.4);
+  --shadow-card: 0 20px 60px -25px rgba(0,0,0,.6);
+  --scrollbar-track: rgba(255,255,255,.04);
+
+  /* RGB triplets (no rgb() wrapper) — consumed by Tailwind's
+     rgb(var(--x-rgb) / <alpha-value>) colour tokens in the page <head>,
+     so classes like bg-space, text-paper/70, border-sky etc. stay usable
+     exactly as originally authored, but become theme-reactive. */
+  --bg-rgb: 2 11 28;
+  --bg-alt-rgb: 3 18 46;
+  --text-rgb: 247 255 254;
+  --mint-rgb: 167 232 167;
+  --green-rgb: 118 209 102;
+  --sky-rgb: 99 201 227;
+  --bright-rgb: 45 137 229;
+  --brand-rgb: 0 89 179;
+  --royal-rgb: 0 51 102;
+
+  color-scheme: dark;
+}
+
+/* ---------- LIGHT THEME ---------- */
+:root[data-theme="light"] {
+  --bg: #F6FAFF;
+  --bg-alt: #EAF1FB;
+  --bg-elevated: #FFFFFF;
+  --surface: rgba(3,18,46,.035);
+  --surface-strong: rgba(3,18,46,.06);
+  --border: rgba(3,18,46,.10);
+  --border-strong: rgba(3,18,46,.20);
+
+  --text: #03122E;
+  --text-dim: rgba(3,18,46,.68);
+  --text-faint: rgba(3,18,46,.45);
+  --text-faintest: rgba(3,18,46,.30);
+
+  /* brand accents stay true-hex for solid fills (buttons, badges, gradient bars) */
+  --mint: #A7E8A7;
+  --green: #76D166;
+  --sky: #63C9E3;
+  --bright: #2D89E5;
+  --brand: #0059B3;
+  --royal: #003366;
+
+  /* darkened, same-hue variants used as *text* on white for AA-safer contrast */
+  --ink-1: #0059B3;
+  --ink-2: #2F7A2A;
+
+  --mesh-line: rgba(0,89,179,.06);
+  --glow-brand: rgba(0,89,179,.12);
+  --glow-green: rgba(118,209,102,.16);
+  --ring-cta: rgba(47,122,42,.35);
+  --shadow-card: 0 20px 50px -28px rgba(3,18,46,.25);
+  --scrollbar-track: rgba(3,18,46,.05);
+
+  --bg-rgb: 246 250 255;
+  --bg-alt-rgb: 234 241 251;
+  --text-rgb: 3 18 46;
+  --mint-rgb: 167 232 167;
+  --green-rgb: 118 209 102;
+  --sky-rgb: 99 201 227;
+  --bright-rgb: 45 137 229;
+  --brand-rgb: 0 89 179;
+  --royal-rgb: 0 51 102;
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+html { scroll-behavior: smooth; }
+html.no-anim, html.no-anim * { scroll-behavior: auto !important; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  transition: background-color .35s ease, color .35s ease;
+}
+
+::selection { background: var(--green); color: var(--bg); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+
+/* ==========================================================================
+   Utility colour classes (theme-reactive — use instead of Tailwind colour utils)
+   ========================================================================== */
+.u-bg { background: var(--bg); }
+.u-bg-alt { background: var(--bg-alt); }
+.u-surface { background: var(--surface); }
+.u-border { border-color: var(--border); }
+.u-text { color: var(--text); }
+.u-text-dim { color: var(--text-dim); }
+.u-text-faint { color: var(--text-faint); }
+.u-text-faintest { color: var(--text-faintest); }
+.u-ink-1 { color: var(--ink-1); }
+.u-ink-2 { color: var(--ink-2); }
+.u-mint { color: var(--mint); }
+.u-green { color: var(--green); }
+.u-sky { color: var(--sky); }
+.u-bright { color: var(--bright); }
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: background-color .35s ease, border-color .35s ease;
+}
+.nav-link {
+  position: relative;
+  color: var(--text-dim);
+  font-size: .875rem;
+  transition: color .2s ease;
+}
+.nav-link::after {
+  content: ''; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px;
+  background: var(--green); border-radius: 2px;
+  transition: right .25s cubic-bezier(.65,0,.35,1);
+}
+.nav-link:hover, .nav-link[aria-current="page"] { color: var(--text); }
+.nav-link:hover::after, .nav-link[aria-current="page"]::after { right: 0; }
+
+.logo-mark img { height: 26px; width: auto; display: block; }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 99;
+  background: var(--bg);
+  transform: translateY(-100%);
+  transition: transform .45s cubic-bezier(.65,0,.35,1);
+}
+.mobile-menu.open { transform: translateY(0); }
+.hamburger { width: 22px; height: 16px; position: relative; }
+.hamburger span {
+  position: absolute; left: 0; right: 0; height: 2px; background: var(--text);
+  border-radius: 2px; transition: transform .3s ease, opacity .3s ease, top .3s ease;
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 7px; }
+.hamburger span:nth-child(3) { top: 14px; }
+.hamburger.open span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+/* ==========================================================================
+   Theme toggle switch
+   ========================================================================== */
+.theme-toggle {
+  position: relative; width: 52px; height: 28px; border-radius: 99px;
+  background: var(--surface-strong); border: 1px solid var(--border-strong);
+  cursor: pointer; flex-shrink: 0;
+}
+.theme-toggle .knob {
+  position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green); display: flex; align-items: center; justify-content: center;
+  transition: transform .35s cubic-bezier(.65,0,.35,1);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+:root[data-theme="light"] .theme-toggle .knob { transform: translateX(24px); background: var(--brand); }
+.theme-toggle svg { width: 13px; height: 13px; }
+
+/* ==========================================================================
+   Signature motifs (ported from v1, made theme-reactive)
+   ========================================================================== */
+.bars-motif { display: inline-flex; align-items: flex-end; gap: 4px; height: 28px; }
+.bars-motif span { width: 6px; border-radius: 3px; }
+.bars-motif span:nth-child(1) { height: 100%; background: var(--mint); }
+.bars-motif span:nth-child(2) { height: 80%;  background: var(--green); }
+.bars-motif span:nth-child(3) { height: 60%;  background: var(--sky); }
+.bars-motif span:nth-child(4) { height: 40%;  background: var(--bright); }
+.bars-motif span:nth-child(5) { height: 24%;  background: var(--brand); }
+
+.hero-bars { display: flex; align-items: flex-end; gap: clamp(8px, 1.4vw, 18px); height: clamp(180px, 32vh, 320px); }
+.hero-bars .hb { width: clamp(28px, 4.5vw, 58px); border-radius: 10px; transform-origin: bottom; }
+
+.mesh {
+  background-image:
+    linear-gradient(var(--mesh-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mesh-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
+}
+
+.tilt-card {
+  transform-style: preserve-3d; transition: transform .15s ease-out, border-color .2s ease, background-color .35s ease;
+  will-change: transform;
+  border: 1px solid var(--border);
+  background: linear-gradient(to bottom, var(--surface), transparent);
+  box-shadow: var(--shadow-card);
+}
+.tilt-card:hover { border-color: var(--border-strong); }
+.tilt-glare {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(600px circle at var(--gx,50%) var(--gy,50%), var(--glow-green), transparent 60%);
+  opacity: 0; transition: opacity .3s; pointer-events: none;
+}
+.tilt-card:hover .tilt-glare { opacity: 1; }
+.tilt-inner { transform: translateZ(24px); }
+
+.eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-1); }
+
+.cta-glow { box-shadow: 0 0 0 0 var(--ring-cta); animation: ctaPulse 2.6s ease-out infinite; }
+@keyframes ctaPulse {
+  0%   { box-shadow: 0 0 0 0 var(--ring-cta); }
+  70%  { box-shadow: 0 0 0 18px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.gs-reveal { opacity: 0; transform: translateY(32px); }
+
+/* Lightweight IntersectionObserver-driven reveal (no GSAP needed) — used on
+   poster.html / abstract.html; index.html uses the richer GSAP timelines above. */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+details summary::-webkit-details-marker { display: none; }
+details[open] .faq-chev { transform: rotate(45deg); }
+.faq-chev { transition: transform .25s; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn-primary {
+  background: var(--green); color: #04120A; font-weight: 700;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.btn-primary:hover { background: var(--mint); transform: translateY(-1px); }
+.btn-secondary {
+  border: 1px solid var(--border-strong); color: var(--text);
+  transition: border-color .2s ease, color .2s ease, transform .2s ease;
+}
+.btn-secondary:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-1px); }
+
+/* ==========================================================================
+   Page transition overlay (used by site.js on internal nav clicks)
+   ========================================================================== */
+#page-transition {
+  position: fixed; inset: 0; z-index: 200; background: var(--bg);
+  opacity: 0; pointer-events: none; transition: opacity .38s ease;
+}
+#page-transition.active { opacity: 1; pointer-events: all; }
+.page-enter { animation: pageEnter .5s cubic-bezier(.16,1,.3,1) both; }
+@keyframes pageEnter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer-logos img { height: 22px; width: auto; opacity: .8; transition: opacity .2s ease, transform .2s ease; filter: grayscale(0); }
+.footer-logos a:hover img { opacity: 1; transform: translateY(-1px); }
+
+/* ==========================================================================
+   Poster viewer (poster.html)
+   ========================================================================== */
+.poster-frame {
+  position: relative; overflow: hidden; touch-action: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, var(--glow-brand), transparent 70%),
+    var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  cursor: grab;
+}
+.poster-frame.grabbing { cursor: grabbing; }
+.poster-frame .poster-stage {
+  position: absolute; inset: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.poster-frame img {
+  width: 100%; height: 100%; object-fit: contain;
+  display: block; user-select: none; -webkit-user-drag: none; pointer-events: none;
+}
+
+.zoom-controls button {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--surface-strong); border: 1px solid var(--border-strong); color: var(--text);
+  transition: background-color .2s ease, transform .15s ease;
+}
+.zoom-controls button:hover { background: var(--border-strong); transform: translateY(-1px); }
+.zoom-controls button:active { transform: translateY(0) scale(.96); }
+
+/* ==========================================================================
+   Abstract page
+   ========================================================================== */
+.abstract-body p + p { margin-top: 1rem; }
+.abstract-section + .abstract-section { margin-top: 2.25rem; }
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff !important; color: #111 !important; }
+  a { color: #111 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-reveal { opacity: 1 !important; transform: none !important; }
+  .cta-glow { animation: none; }
+  .tilt-card { transition: none !important; }
+  html { scroll-behavior: auto; }
+  .page-enter { animation: none !important; }
+}
