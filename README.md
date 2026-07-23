@@ -1,151 +1,79 @@
-# HIVnext Global — AIDS2026 site
+# HIVnext — AIDS2026 site
 
-A small static site: homepage, a full-size zoomable virtual poster viewer, and
-the accepted abstract. Built with plain HTML + Tailwind (via CDN) + a little
-vanilla JS — no build step, so it deploys straight to GitHub Pages.
+A static conference microsite for HIVnext, including the homepage, interactive
+virtual poster, and official AIDS2026 abstract 9598. It uses plain HTML,
+Tailwind via CDN, GSAP on the homepage, and vanilla JavaScript. There is no
+build step.
 
-```
-index.html          Homepage
-poster.html          Virtual poster viewer (pan/zoom + download)
-abstract.html        Accepted abstract, formatted for reading & printing
+```text
+index.html             Homepage
+poster.html             Zoomable virtual-poster viewer
+abstract.html           Official two-page abstract viewer
 assets/
-  css/site.css        All shared styles + the light/dark theme system
-  js/config.js         ← THE FILE YOU EDIT to change logos, links, CTA
-  js/site.js            Renders nav/footer, theme toggle, page transitions
-  js/poster-viewer.js   Pan/zoom controller for the poster page
-  logos/                Your logo files
-  favicon/              Tab icon (generated from Emblem-vector.svg)
-  poster/                Poster PDF + web-optimised images
+  abstract/              Official PDF plus page-render images
+  css/site.css           Shared styles and light/dark theme system
+  js/config.js           Shared branding, links, and asset paths
+  js/site.js             Header, footer, theme, and page transitions
+  js/poster-viewer.js    Poster pan/zoom controls
+  logos/                 HIVnext and MAF/MAC identity assets
+  poster/                Approved poster PDF and web image variants
 ```
 
----
+## Content included in this revision
 
-## 1. Deploy it to GitHub Pages (5 minutes)
+- The approved IAS-AIDS 2026 poster assets are used by the homepage preview and
+  the Virtual Poster page. A version query is applied to the poster paths to
+  invalidate older browser or CDN caches.
+- HIVnext is expanded on the homepage as **Health Information Vault**, with an
+  animated acronym treatment and explanatory copy for the NGO-focused cloud
+  database and program-management system.
+- National deployment figures and all three “From the Field” testimonials have
+  been updated.
+- The AIDS2026 callout uses `assets/logos/emblem.svg`.
+- The footer uses the MAF/MAC initiative lock-up on the left and the new
+  theme-aware HIVnext wordmark on the right.
+- `abstract.html` shows faithful renders of both pages of the attached official
+  abstract. No download or print control is exposed in the public interface.
 
-1. Create a new repository on GitHub (public, so Pages can serve it for free).
-2. Push this whole folder to it:
-   ```bash
-   cd aids2026-site
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-repo>.git
-   git push -u origin main
-   ```
-3. On GitHub: go to **Settings → Pages**. Under "Build and deployment", set
-   **Source: Deploy from a branch**, branch **main**, folder **/ (root)**. Save.
-4. Wait ~1 minute, then your site is live at:
-   `https://<your-username>.github.io/<your-repo>/`
+## Shared settings
 
-**A note on repo size:** the original poster PDF (`assets/poster/poster-original.pdf`)
-is ~31 MB. That's fine for a normal `git push` (GitHub's hard limit is 100 MB
-per file), but if you'd rather keep the repo lightweight, you can:
-- delete it and only keep `poster-web.jpg` (the viewer doesn't need the PDF —
-  only the "Download original PDF" button does), or
-- use [Git LFS](https://git-lfs.com) for that one file, or
-- host the PDF elsewhere (Google Drive, Dropbox) and point
-  `SITE_CONFIG.poster.pdf` in `config.js` at that URL instead.
+Most global edits are made in `assets/js/config.js`:
 
----
+- `headerLogo`: theme-aware header logo.
+- `footerInitiative`: MAF/MAC logo and initiative wording.
+- `footerWordmark`: theme-aware HIVnext footer wordmark.
+- `demoBookingUrl`: destination used by all demo calls to action.
+- `poster`: approved poster title, metadata, PDF, web image, thumbnail, and
+  placeholder paths.
+- `abstract`: official abstract ID, source PDF, and page-image paths.
+- `contactEmail` and `contactNote`: footer contact details.
 
-## 2. Point aids2026.hivnext.org at it (custom domain)
+## Local preview
 
-A `CNAME` file (containing `aids2026.hivnext.org`) is already included at the
-repo root, and canonical/`og:url` tags in all three pages already point at
-that domain — so the code side is done. Two things left, both outside this
-repo:
-
-**A. Add a DNS record.** Log into wherever `hivnext.org`'s DNS is managed
-(your registrar, or Cloudflare/Route 53/etc. if you use one) and add:
-
-| Type  | Host/Name | Value |
-|-------|-----------|-------|
-| CNAME | `aids2026` | `<your-username>.github.io` |
-
-(Use your GitHub username or org name — *not* the repo name — as the value.
-DNS changes can take anywhere from a few minutes to a few hours to propagate.)
-
-**B. Tell GitHub Pages about it.** Repo → **Settings → Pages** → under
-"Custom domain," enter `aids2026.hivnext.org` → Save. Once DNS has
-propagated, GitHub auto-provisions an HTTPS certificate (can take up to ~24h
-the first time) — come back and tick **Enforce HTTPS** once that checkbox
-becomes available.
-
-Once both are done, `https://aids2026.hivnext.org` is your live site — that's
-the URL to put in your QR code.
-
----
-
-## 3. Generate your QR code
-
-Once your Pages URL is live (custom domain or the default `github.io` one —
-whichever resolves first), generate a QR code pointing at it. Any QR
-generator works — [qr-code-generator.com](https://www.qr-code-generator.com)
-or [qrcode.tec-it.com](https://qrcode.tec-it.com) are both free and need no
-account. Test it by scanning with your own phone before printing the poster.
-
----
-
-## 4. Everyday edits — `assets/js/config.js`
-
-This is the one file you'll come back to. It's heavily commented. In short:
-
-- **Header logo** — `headerLogo.srcDark` / `headerLogo.srcLight`: swap these
-  paths to use your own logo. Provide a light-coloured version (for dark
-  theme) and dark-coloured version (for light theme) so the wordmark stays
-  readable when someone toggles the theme.
-- **Footer logos** — `footerLogos`: an array. Every object in it renders as a
-  logo in the footer automatically, in order. To add your NGO/company logo,
-  drop the image file into `assets/logos/`, then add a new object to the
-  array pointing at it (copy an existing entry as a template).
-- **Book a demo** — `demoBookingUrl`: point this at a `mailto:`, a
-  Calendly/Cal.com link, or a contact form. Every "Book a demo" button on
-  every page reads from this one value.
-- **Poster metadata** — `poster.title` / `poster.authors` / `poster.session`:
-  shown on the poster and abstract pages.
-
-After editing `config.js`, just refresh the page — no build step, no
-compiling.
-
----
-
-## 5. Things worth checking before you publish
-
-- **`abstract.html` wording** — the abstract text was reconstructed from the
-  content and figures visible on your poster PDF, since no separate abstract
-  manuscript was supplied. Please compare it against your officially
-  submitted IAS abstract and edit `abstract.html` if the exact wording
-  differs (there's an HTML comment near the top of the file marking exactly
-  what to check).
-- **Testimonial quotes** on the homepage are placeholders carried over from
-  the original draft (marked with a `⚠️ PLACEHOLDER` comment in `index.html`)
-  — replace with real, approved quotes before the conference.
-- **`hivnext.org`** is linked from the final CTA section — update or remove
-  if that domain isn't live yet.
-
----
-
-## 6. Local preview
-
-No build step needed — but opening `index.html` directly via `file://` will
-block the fetch-free parts fine, though it's better to serve it locally so
-paths behave exactly like production:
+Serve the folder over HTTP so all relative paths behave as they will in
+production:
 
 ```bash
 cd aids2026-site
 python3 -m http.server 8000
-# open http://localhost:8000
 ```
 
----
+Then open `http://localhost:8000/`.
 
-## 7. Browser support notes
+## Deployment
 
-- The theme toggle uses `localStorage` + `prefers-color-scheme`, and the nav
-  bar's blur tint uses CSS `color-mix()` — both work in all current browsers
-  (evergreen Chrome/Safari/Firefox/Edge, iOS Safari, Android Chrome).
-- The poster pan/zoom uses the Pointer Events API (unifies mouse + touch),
-  supported everywhere modern.
-- Reduced-motion preference is respected throughout — animations are skipped
-  automatically for visitors with that OS setting enabled.
+The folder can be deployed directly to any static host, including GitHub Pages,
+Cloudflare Pages, Netlify, or an existing web server. The included `CNAME`
+contains `aids2026.hivnext.org`; keep it only when that host should serve the
+custom domain.
+
+The site loads Tailwind, GSAP, and Google Fonts from public CDNs, so its content
+security policy and production network must allow those origins.
+
+## Abstract-viewer note
+
+The official source file remains at
+`assets/abstract/official-abstract-9598.pdf` for archival fidelity. The public
+abstract page intentionally renders the PDF as page images and does not provide
+a download or print button. As with any content delivered to a browser, this is
+interface-level deterrence rather than absolute file-access prevention.

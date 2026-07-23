@@ -1,5 +1,5 @@
 /* ============================================================================
-   HIVnext Global — shared site behaviour
+   HIVnext — shared site behaviour
    Runs on every page. Reads window.SITE_CONFIG (config.js) to build the nav,
    footer, and CTA links so branding only has to be edited in one place.
    ============================================================================ */
@@ -121,23 +121,42 @@
   function renderFooter() {
     var mount = document.getElementById('site-footer');
     if (!mount) return;
-    var logos = CFG.footerLogos || [];
-    var logosHtml = logos.map(function (l) {
-      var img = '<img src="' + (l.srcDark || l.src || '') + '" data-logo-dark="' + (l.srcDark || l.src || '') + '" data-logo-light="' + (l.srcLight || l.src || '') + '" alt="' + (l.alt || '') + '">';
-      return l.href
-        ? '<a href="' + l.href + '" target="_blank" rel="noopener" title="' + (l.alt || '') + '">' + img + '</a>'
-        : img;
-    }).join('');
+
+    var initiative = CFG.footerInitiative || {};
+    var wordmark = CFG.footerWordmark || {};
+    var initiativeHtml = '';
+    var wordmarkHtml = '';
+
+    if (initiative.logo || initiative.label) {
+      initiativeHtml =
+        '<div class="footer-initiative">' +
+          (initiative.logo
+            ? '<img class="footer-initiative-logo" src="' + initiative.logo + '" alt="' + (initiative.alt || '') + '">'
+            : '') +
+          (initiative.label
+            ? '<span class="footer-initiative-copy">' + initiative.label + '</span>'
+            : '') +
+        '</div>';
+    }
+
+    if (wordmark.srcDark || wordmark.srcLight) {
+      var wordmarkImage =
+        '<img src="' + (wordmark.srcDark || wordmark.srcLight || '') + '"' +
+          ' data-logo-dark="' + (wordmark.srcDark || wordmark.srcLight || '') + '"' +
+          ' data-logo-light="' + (wordmark.srcLight || wordmark.srcDark || '') + '"' +
+          ' alt="' + (wordmark.alt || CFG.siteName || 'HIVnext') + '">';
+
+      wordmarkHtml = wordmark.href
+        ? '<a class="footer-wordmark" href="' + wordmark.href + '" aria-label="' + (wordmark.alt || CFG.siteName || 'HIVnext') + '">' + wordmarkImage + '</a>'
+        : '<div class="footer-wordmark">' + wordmarkImage + '</div>';
+    }
 
     mount.innerHTML =
-      '<footer class="border-t u-border py-12">' +
+      '<footer class="site-footer border-t u-border py-12">' +
         '<div class="max-w-6xl mx-auto px-5">' +
-          '<div class="flex flex-wrap items-center justify-between gap-8">' +
-            '<div class="flex items-center gap-2.5">' +
-              '<span class="bars-motif" style="height:20px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>' +
-              '<span class="font-display font-semibold text-sm u-text-dim">' + (CFG.siteName || '') + '</span>' +
-            '</div>' +
-            '<div class="footer-logos flex items-center gap-6 flex-wrap">' + logosHtml + '</div>' +
+          '<div class="footer-main">' +
+            initiativeHtml +
+            wordmarkHtml +
           '</div>' +
           '<div class="mt-8 pt-6 border-t u-border flex flex-col sm:flex-row items-center justify-between gap-3">' +
             '<p class="text-xs u-text-faint font-mono">' + (CFG.siteTagline || '') + ' · ' + (CFG.contactNote || '') + '</p>' +

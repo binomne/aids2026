@@ -1,5 +1,5 @@
 /* ============================================================================
-   HIVnext Global — poster pan/zoom viewer
+   HIVnext — poster pan/zoom viewer
    Vanilla JS, no dependencies. Mouse wheel to zoom, drag to pan, pinch to
    zoom on touch, double-click/double-tap to toggle zoom, plus button
    controls and fullscreen. Works because .poster-stage is always sized to

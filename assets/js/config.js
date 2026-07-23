@@ -1,87 +1,62 @@
 /* ============================================================================
-   HIVnext Global — SITE CONFIG
+   HIVnext — SITE CONFIG
    ----------------------------------------------------------------------------
-   This is the ONLY file you should need to touch to rebrand or update
-   links across the whole site. Every page reads from window.SITE_CONFIG.
-
-   To add a new logo to the footer: copy one of the objects inside
-   `footerLogos` below, paste it as a new line, and point `src` at your own
-   image (SVG, PNG, or JPG all work — drop the file into assets/logos/ first).
+   Shared branding, links, and conference assets used across the static site.
    ============================================================================ */
 
 window.SITE_CONFIG = {
 
-  siteName: "HIVnext Global",
+  siteName: "HIVnext",
   siteTagline: "Built by Community, for Community",
 
-  // ---------------------------------------------------------------------
-  // HEADER LOGO
-  // Shown top-left on every page. Provide a light-coloured version (for
-  // dark theme) and a dark-coloured version (for light theme) so the
-  // wordmark stays legible when a visitor toggles the theme switch.
-  // Swap the file paths below to use your own logo — just replace the
-  // files in assets/logos/ or point these at new filenames.
-  // ---------------------------------------------------------------------
+  // Header wordmark. The theme-aware pair keeps it readable in both modes.
   headerLogo: {
-    srcDark: "assets/logos/hivnext-logo-dark-bg.svg",   // used when theme = dark
-    srcLight: "assets/logos/hivnext-logo-light-bg.svg", // used when theme = light
-    alt: "HIVnext Global",
+    srcDark: "assets/logos/hivnext-logo-dark-bg.svg",
+    srcLight: "assets/logos/hivnext-logo-light-bg.svg",
+    alt: "HIVnext",
     href: "index.html"
   },
 
-  // ---------------------------------------------------------------------
-  // FOOTER LOGOS
-  // Every object in this array renders automatically as a logo in the
-  // footer strip, in order. Add your own NGO / company / partner logos
-  // here so conference visitors know who built this. `srcLight` is
-  // optional — omit it if your logo already works fine on both themes
-  // (e.g. it has a transparent background and readable colours).
-  // ---------------------------------------------------------------------
-  footerLogos: [
-    {
-      srcDark: "assets/logos/hivnext-logo-dark-bg.svg",
-      srcLight: "assets/logos/hivnext-logo-light-bg.svg",
-      alt: "HIVnext Global",
-      href: "index.html"
-    },
-    {
-      srcDark: "assets/logos/emblem.svg",
-      srcLight: "assets/logos/emblem.svg",
-      alt: "AIDS2026 — 26th International AIDS Conference",
-      href: "https://www.iasociety.org"
-    }
-    // 👉 Add your own logo(s) here, for example:
-    // {
-    //   srcDark: "assets/logos/your-ngo-logo.svg",
-    //   srcLight: "assets/logos/your-ngo-logo.svg",
-    //   alt: "Your NGO Name",
-    //   href: "https://your-ngo-website.org"
-    // },
-  ],
+  // Footer identity: MAF/MAC initiative lock-up on the left, HIVnext wordmark
+  // on the right. The wordmark swaps automatically with the theme.
+  footerInitiative: {
+    logo: "assets/logos/mafmac.svg",
+    alt: "Malaysian AIDS Foundation and Malaysian AIDS Council",
+    label: "An initiative by M&E, MAF/MAC"
+  },
 
-  // ---------------------------------------------------------------------
-  // CALL TO ACTION — "Book a demo"
-  // Point this at whatever you want visitors to do: a mailto link (default),
-  // a Calendly / Cal.com booking page, or a contact form URL.
-  // ---------------------------------------------------------------------
+  footerWordmark: {
+    srcDark: "assets/logos/hivnext-wordmark-on-dark.svg",
+    srcLight: "assets/logos/hivnext-wordmark-on-light.svg",
+    alt: "HIVnext",
+    href: "index.html"
+  },
+
+  // Main call to action.
   demoBookingUrl: "mailto:hivnext@myaids.org.my?subject=HIVnext%20Demo%20Request%20—%20AIDS2026",
   demoButtonLabel: "Book a demo →",
 
-  // ---------------------------------------------------------------------
-  // POSTER (virtual poster viewer page)
-  // ---------------------------------------------------------------------
+  // Approved IAS-AIDS 2026 poster assets. The version query forces browsers
+  // and CDNs to replace any cached pre-QR poster render.
   poster: {
     title: "Leveraging Integrated Digital Health Systems to Reduce Community Health Worker Reporting Burden and Strengthen Differentiated HIV Service Delivery in Malaysia",
     authors: "B.A.H. Ibnu Najah, B.Y. Md Yusralhakim",
-    session: "AIDS2026 · Abstract THPEE537 · Presented at the 26th International AIDS Conference",
-    pdf: "assets/poster/poster-original.pdf",         // full-resolution original — linked as a direct download
-    image: "assets/poster/poster-web.jpg",             // web-optimised render used in the on-page zoom/pan viewer
-    placeholder: "assets/poster/poster-placeholder.jpg" // tiny blurred image shown while the full poster loads
+    session: "AIDS2026 · Abstract 9598 · Presented at the 26th International AIDS Conference",
+    pdf: "assets/poster/poster-original.pdf?v=ias-aids-2026-qr",
+    image: "assets/poster/poster-web.jpg?v=ias-aids-2026-qr",
+    thumbnail: "assets/poster/poster-thumb.jpg?v=ias-aids-2026-qr",
+    placeholder: "assets/poster/poster-placeholder.jpg?v=ias-aids-2026-qr"
   },
 
-  // ---------------------------------------------------------------------
-  // CONTACT (shown in footer)
-  // ---------------------------------------------------------------------
+  // Official two-page IAS abstract. The public page shows faithful page
+  // renders and intentionally exposes no download or print control.
+  abstract: {
+    id: "9598",
+    source: "assets/abstract/official-abstract-9598.pdf",
+    pageOne: "assets/abstract/abstract-page-1.webp",
+    pageTwo: "assets/abstract/abstract-page-2.webp"
+  },
+
   contactEmail: "hivnext@myaids.org.my",
   contactNote: "Malaysian AIDS Foundation / Malaysian AIDS Council"
 };
